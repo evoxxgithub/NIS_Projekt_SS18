@@ -1,4 +1,4 @@
-package de.unidue.iem.tdr.nis.util;
+package de.unidue.iem.tdr.nis.util.numbers;
 
 public class Number {
 
@@ -28,5 +28,9 @@ public class Number {
 
     public int getValue() {
         return value;
+    }
+
+    public int mod(int n) {
+        return this.value - (n * (this.value / n));
     }
 }
