@@ -17,4 +17,16 @@ public class Number {
         this.value = value;
         this.represenation = this.encoding.getRepresentationOf(this.value);
     }
+
+    public NumEncoding getEncoding() {
+        return encoding;
+    }
+
+    public String getRepresenation() {
+        return represenation;
+    }
+
+    public int getValue() {
+        return value;
+    }
 }
