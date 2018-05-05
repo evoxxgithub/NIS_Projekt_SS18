@@ -1,11 +1,11 @@
 package de.unidue.iem.tdr.nis.util.numbers;
 
-public class NumericalString {
+public class EncodedString {
 
     private final String represenation;
-    private final NumEncoding encoding;
+    private final Encoding encoding;
 
-    public NumericalString(String represenation, NumEncoding encoding) {
+    public EncodedString(String represenation, Encoding encoding) {
         this.represenation = represenation;
         this.encoding = encoding;
     }

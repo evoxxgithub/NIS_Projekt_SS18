@@ -2,23 +2,23 @@ package de.unidue.iem.tdr.nis.util.numbers;
 
 public class Number {
 
-    private final NumEncoding encoding;
+    private final Encoding encoding;
     private final String represenation;
     private final int value;
 
-    public Number(NumEncoding encoding, String represenation) {
+    public Number(Encoding encoding, String represenation) {
         this.encoding = encoding;
         this.represenation = represenation;
         this.value = this.encoding.getValueOf(this.represenation);
     }
 
-    public Number(NumEncoding encoding, int value) {
+    public Number(Encoding encoding, int value) {
         this.encoding = encoding;
         this.value = value;
         this.represenation = this.encoding.getRepresentationOf(this.value);
     }
 
-    public NumEncoding getEncoding() {
+    public Encoding getEncoding() {
         return encoding;
     }
 

@@ -1,3 +1,4 @@
 .idea/*
 *.iml
-de/unidue/iem/tdr/nix/client/*.java
+de/unidue/iem/tdr/nis/client/*.java
+de/unidue/iem/tdr/nis/utril/apicon/Credentials.java

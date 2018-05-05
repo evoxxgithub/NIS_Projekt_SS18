@@ -14,8 +14,8 @@ public class BinToHexConverter implements INumConverter {
         for (int i = 0; i < rep.length(); i += 4) {
             final String hexa_character = rep.substring(i, i + 3);
             conversionBuilder.append(
-                    NumEncoding.BINARY.getRepresentationOf(
-                            NumEncoding.HEXA.getValueOf(hexa_character)
+                    Encoding.BINARY.getRepresentationOf(
+                            Encoding.HEXA.getValueOf(hexa_character)
                     ));
         }
         String result = conversionBuilder.toString();

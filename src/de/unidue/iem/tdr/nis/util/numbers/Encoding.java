@@ -1,37 +1,25 @@
 package de.unidue.iem.tdr.nis.util.numbers;
 
-public enum NumEncoding {
+public enum Encoding {
 
-    BINARY(new char[]{'0', '1'}, 2, new INumConverter[]{
-            new BinToBinConverter(),
-            new BinToDecConverter(),
-            new BinToHexConverter()
-    }),
-    DEC(new char[]{'0', '1','2', '3','4', '5','6', '7','8', '9'}, 10, new INumConverter[]{
-            new DecToBinConverter(),
-            new DecToDecConverter(),
-            new DecToHexConverter()
-    }),
-    HEXA(new char[]{'0', '1','2', '3','4', '5','6', '7','8', '9','a', 'b','c', 'd','e', 'f'}, 16, new INumConverter[]{
-            new HexToBinConverter(),
-            new HexToDecConverter(),
-            new HexToHexConverter()
-    });
+    BINARY(new char[]{'0', '1'}, 2, new BinToHexConverter()),
+    HEXA(new char[]{
+            '0', '1','2', '3','4', '5','6', '7','8', '9','a', 'b','c', 'd','e', 'f'
+        }, 16, new HexToBinConverter()),
+    ALPHABET_CAPSLOCK(new char[]{
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+            }, 26, null);
+
 
     private final char[] characters;
     private final int numOfCharacters;
-    private final INumConverter[] converters;
+    private final INumConverter converter;
 
-    private interface ConverterNumbers {
-        int BINARY = 0;
-        int DEC = 1;
-        int HEXA = 2;
-    }
-
-    NumEncoding(char[] characters, int numOfCharacters, INumConverter[] converters) {
+    Encoding(char[] characters, int numOfCharacters, INumConverter converter) {
         this.characters = characters;
         this.numOfCharacters = numOfCharacters;
-        this.converters = converters;
+        this.converter = converter;
     }
 
     public char[] getCharacters() {
@@ -72,13 +60,9 @@ public enum NumEncoding {
         throw new RuntimeException("invalid character code for NumberEncoding");
     }
 
-    String toEncoding(NumEncoding enc, String rep) {
-        switch (enc) {
-            case BINARY: return this.converters[ConverterNumbers.BINARY].convert(rep);
-            case DEC:    return this.converters[ConverterNumbers.DEC].convert(rep);
-            case HEXA:   return this.converters[ConverterNumbers.HEXA].convert(rep);
-        }
-        throw new RuntimeException("illegal encoding");
+    String toEncoding(String rep) {
+      if (converter == null) throw new RuntimeException("unable to convert encoding "  + this.toString());
+      return this.converter.convert(rep);
     }
 
 }
