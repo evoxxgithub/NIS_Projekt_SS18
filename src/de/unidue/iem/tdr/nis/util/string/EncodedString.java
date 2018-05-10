@@ -1,4 +1,6 @@
-package de.unidue.iem.tdr.nis.util.numbers;
+package de.unidue.iem.tdr.nis.util.string;
+
+import de.unidue.iem.tdr.nis.util.numbers.Encoding;
 
 public class EncodedString {
 
@@ -8,5 +10,13 @@ public class EncodedString {
     public EncodedString(String represenation, Encoding encoding) {
         this.represenation = represenation;
         this.encoding = encoding;
+    }
+
+    public String getRepresenation() {
+        return represenation;
+    }
+
+    public Encoding getEncoding() {
+        return encoding;
     }
 }

@@ -1,11 +1,9 @@
 package de.unidue.iem.tdr.nis.util.encryption;
 
 
-import de.unidue.iem.tdr.nis.util.numbers.EncodedString;
-
 public class Message {
     private String plainText;
-    private EncodedString cipherText;
+    private String cipherText;
     private EncryptionAlgorithm encryptionAlgorithm;
 
     public Message(String plainText, EncryptionAlgorithm encryptionAlgorithm) {
@@ -13,16 +11,11 @@ public class Message {
         this.encryptionAlgorithm = encryptionAlgorithm;
     }
 
-    public Message(EncodedString cipherText, EncryptionAlgorithm encryptionAlgorithm) {
-        this.cipherText = cipherText;
-        this.encryptionAlgorithm = encryptionAlgorithm;
-    }
-
     public String getPlainText() {
         return plainText;
     }
 
-    public EncodedString getCipherText() {
+    public String getCipherText() {
         return cipherText;
     }
 

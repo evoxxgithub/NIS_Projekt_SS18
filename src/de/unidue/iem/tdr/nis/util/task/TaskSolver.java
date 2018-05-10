@@ -16,9 +16,10 @@ public abstract class TaskSolver {
 
     public boolean solve() {
         this.task = this.connection.getTask(this.TASK_ID);
-        String solution = this.calculateSolution();
+        final String solution = this.calculateSolution();
         return this.connection.sendSolution(solution);
     }
 
     protected abstract String calculateSolution();
+
 }

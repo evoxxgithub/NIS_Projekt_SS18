@@ -5,12 +5,14 @@ public class HexToBinConverter implements INumConverter {
     public String convert(String rep) {
         StringBuilder conversionBuilder = new StringBuilder();
         for (int i = 0; i < rep.length(); i++) {
-            conversionBuilder.append(
-              Encoding.BINARY.getRepresentationOf(
-                      Encoding.HEXA.getValueOf(rep.substring(i, i + 1))
-              )
-            );
+            String bin = Encoding.BINARY.getRepresentationOf(Encoding.HEXA.getValueOf(rep.substring(i, i+1)));
+            System.out.println("pre_bin: " + bin);
+            for (int j = 0; j < 4 - bin.length(); j++) {
+                conversionBuilder.append('0');
+            }
+            conversionBuilder.append(bin);
         }
+        System.out.println("bin: " + conversionBuilder.toString());
         return conversionBuilder.toString();
     }
 }
