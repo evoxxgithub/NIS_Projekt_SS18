@@ -33,7 +33,7 @@ public class SolutionTester {
                 new VigenereSolver(connection),
                 new DesKeyScheduleSolver(connection),
                 new DesRBlockSolver(connection),
-                new DummySolver(),
+                new DesFeistelSolver(connection),
                 new DummySolver(),
                 new DummySolver(),
                 new DummySolver(),

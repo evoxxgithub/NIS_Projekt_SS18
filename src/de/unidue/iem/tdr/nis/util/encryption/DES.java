@@ -50,7 +50,7 @@ public class DES implements EncryptionAlgorithm {
     }
 
     public String getNextKey() {
-        for(int j = 0; j < numberOfShifts[this.roundsFinished]; j++) {
+        for(int j = 0; j < numberOfShifts[this.roundsFinished-1]; j++) {
             c_block = StringUtils.shiftLeft(c_block);
             d_block = StringUtils.shiftLeft(d_block);
         }
