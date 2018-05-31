@@ -25,6 +25,10 @@ public class DES implements EncryptionAlgorithm {
         return this.r_block;
     }
 
+    public String getL_block() {
+        return this.l_block;
+    }
+
     public void setNewInput(String input) {
         final String ip_input = this.performinitialPermutation(input);
         this.l_block = ip_input.substring(0, 32);
@@ -97,6 +101,16 @@ public class DES implements EncryptionAlgorithm {
     public void iterateRound() {
         final String expandedBlock = expand(this.r_block);
         final String feistelResult = feistel(expandedBlock, this.getNextKey());
+        final String old_l_block = this.l_block;
+        this.l_block = this.r_block;
+        this.r_block = Functions.xor(feistelResult, old_l_block);
+    }
+
+    public void roundwith(String r_block, String l_block, String round_key) {
+        this.r_block = r_block;
+        this.l_block = l_block;
+        final String expandedBlock = expand(this.r_block);
+        final String feistelResult = feistel(expandedBlock, round_key);
         final String old_l_block = this.l_block;
         this.l_block = this.r_block;
         this.r_block = Functions.xor(feistelResult, old_l_block);
