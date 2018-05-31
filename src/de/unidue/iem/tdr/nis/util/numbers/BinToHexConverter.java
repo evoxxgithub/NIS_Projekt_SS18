@@ -12,16 +12,13 @@ public class BinToHexConverter implements INumConverter {
         rep = repPreparer.toString();
 
         for (int i = 0; i < rep.length(); i += 4) {
-            final String hexa_character = rep.substring(i, i + 3);
+            final String hexa_character = rep.substring(i, i + 4);
             conversionBuilder.append(
-                    Encoding.BINARY.getRepresentationOf(
-                            Encoding.HEXA.getValueOf(hexa_character)
+                    Encoding.HEXA.getRepresentationOf(
+                            Encoding.BINARY.getValueOf(hexa_character)
                     ));
         }
         String result = conversionBuilder.toString();
-        while(result.charAt(0) == '0') {
-            result = result.substring(1, result.length());
-        }
         return result;
     }
 }

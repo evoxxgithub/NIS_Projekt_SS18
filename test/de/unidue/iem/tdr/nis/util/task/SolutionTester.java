@@ -33,9 +33,9 @@ public class SolutionTester {
                 new VigenereSolver(connection),
                 new DesKeyScheduleSolver(connection),
                 new DesRBlockSolver(connection),
-                new DummySolver(),
-                new DummySolver(),
-                new DummySolver(),
+                new DesFeistelSolver(connection),
+                new DesRoundSolver(connection),
+                new AesGf8Solver(connection),
                 new DummySolver(),
                 new DummySolver(),
                 new DummySolver(),
@@ -79,6 +79,8 @@ public class SolutionTester {
 
     @Test
     public void TASK_04_FACTORIZATION() {
+        int[] ints = new int[6];
+        .toArray(new int[.size()])
         boolean solved = solver.getSolverOf(TaskDefs.TASK_FACTORIZATION).solve();
         Assert.assertEquals(true, solved);
     }
