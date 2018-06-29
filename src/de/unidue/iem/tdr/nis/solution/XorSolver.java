@@ -25,6 +25,6 @@ public class XorSolver extends TaskSolver {
     }
 
     private String xorBinaries(String bin1, String bin2) {
-        return Functions.xor(bin1, bin2);
+        return Functions.binaryXor(bin1, bin2);
     }
 }

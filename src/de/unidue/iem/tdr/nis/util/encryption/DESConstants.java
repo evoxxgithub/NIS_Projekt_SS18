@@ -82,7 +82,7 @@ public interface DESConstants {
     int S_BOX_INPUT_LENGTH = 6;
 
     static String feistel(String r_block, String round_key) {
-        final String substitution_input = Functions.xor(r_block, round_key);
+        final String substitution_input = Functions.binaryXor(r_block, round_key);
         final String substitution_result = s_box(substitution_input);
         final String permutation_result = permute(substitution_result);
         return permutation_result;

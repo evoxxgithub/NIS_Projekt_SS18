@@ -2,7 +2,6 @@ package de.unidue.iem.tdr.nis.solution;
 
 import de.unidue.iem.tdr.nis.client.Connection;
 import de.unidue.iem.tdr.nis.client.TaskDefs;
-import de.unidue.iem.tdr.nis.util.encryption.AESConstants;
 import de.unidue.iem.tdr.nis.util.numbers.HexMultiplier;
 import de.unidue.iem.tdr.nis.util.task.TaskSolver;
 
@@ -17,7 +16,7 @@ public class AesGf8Solver extends TaskSolver {
         final String hex2 = task.getStringArray(1);
         System.out.println("aes-hex1: " + hex1);
         System.out.println("aes-hex1: " + hex2);
-        final String result = new HexMultiplier().muliply(hex1, hex2);
+        final String result = new HexMultiplier().multiply(hex1, hex2);
         System.out.println("aes-result: " + result);
         return result;
     }

@@ -21,6 +21,6 @@ public class DesFeistelSolver extends TaskSolver {
         System.out.println("len: " + permuted_result.length() + " res: " + permuted_result);
         System.out.println("len: " + key.length() + " key: " + key);
         System.out.println("len: " + l_block.length() + " l_block: " + permuted_result);
-        return Functions.xor(permuted_result, l_block);
+        return Functions.binaryXor(permuted_result, l_block);
     }
 }

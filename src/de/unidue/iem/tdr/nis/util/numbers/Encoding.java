@@ -74,7 +74,7 @@ public enum Encoding {
             if (this.characters[idx] == c) return idx;
             idx += 1;
         }
-        throw new RuntimeException("invalid character code for NumberEncoding");
+        throw new RuntimeException("invalid character code for NumberEncoding: " + c);
     }
 
     String changeEncoding(String rep) {

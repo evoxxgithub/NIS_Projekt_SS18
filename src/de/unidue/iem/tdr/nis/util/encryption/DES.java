@@ -103,7 +103,7 @@ public class DES implements EncryptionAlgorithm {
         final String feistelResult = feistel(expandedBlock, this.getNextKey());
         final String old_l_block = this.l_block;
         this.l_block = this.r_block;
-        this.r_block = Functions.xor(feistelResult, old_l_block);
+        this.r_block = Functions.binaryXor(feistelResult, old_l_block);
     }
 
     public void roundwith(String r_block, String l_block, String round_key) {
@@ -113,6 +113,6 @@ public class DES implements EncryptionAlgorithm {
         final String feistelResult = feistel(expandedBlock, round_key);
         final String old_l_block = this.l_block;
         this.l_block = this.r_block;
-        this.r_block = Functions.xor(feistelResult, old_l_block);
+        this.r_block = Functions.binaryXor(feistelResult, old_l_block);
     }
 }
